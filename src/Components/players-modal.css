@@ -34,7 +34,18 @@ input {
   border: 1px solid #ccc !important;
   border-radius: 8px;
   box-shadow: 0;
-  margin: 30px auto !important;
-  padding: 8px;
+  margin: 30px auto 10px auto !important;
+  padding: 10px !important;
   width: 400px;
+}
+
+button {
+  background: rgb(11, 167, 50);
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: "Gowun Dodum", sans-serif;
+  margin-top: 15px;
+  padding: 10px;
 }

@@ -11,22 +11,29 @@ export default function Field() {
     const defenders = useSelector(state => state.squad.defenders)
     const midfielders = useSelector(state => state.squad.midfielders)
     const goalkeeper = useSelector(state => state.squad.goalkeeper)
-    const [showModal, setShowModal] = useState(true)
+    const [showModal, setShowModal] = useState(false)
 
     function handleSubmission() {
         const attackersValidation = attackers.find(att => att.name === '')
         const defendersValidation = defenders.find(att => att.name === '')
         const midfieldersValidation = midfielders.find(att => att.name === '')
+        const goalkeeperValidation = goalkeeper.name === ''
 
-        if (!attackersValidation && !defendersValidation && !midfieldersValidation) {
-            alert('good to go')
-        } else {
+        if (!attackersValidation && !defendersValidation && !midfieldersValidation && !goalkeeperValidation) {
+            setShowModal(true)
+        } 
+        else {
             alert('fill your first eleven')
         }
     }
     
     return (
         <div>
+            {
+                showModal && <div style={{position: 'fiexd', top: '0', left: '0'}}>
+                    <SubmissionModal setModal={() => setShowModal(false)} squad={{attackers: attackers, goalkeeper: goalkeeper, midfielders: midfielders, defenders: defenders}}/>
+                </div>
+            }
             <div className="field">
                 <div>
                     <div className="forwards">
@@ -57,11 +64,10 @@ export default function Field() {
                         }
                     </div>
                     <div className="goalie">
-                        <PlayerCard name={goalkeeper.name} position={goalkeeper.position} number={goalkeeper.team} imageURL={goalkeeper.imageURL}/>
+                        <PlayerCard name={goalkeeper.name} position={goalkeeper.position} team={goalkeeper.team} id={0} imageURL={goalkeeper.imageURL}/>
                     </div>
                 </div>
                 <button onClick={handleSubmission} style={{background: 'Blue'}}>Submit your First Eleven</button>
-                <SubmissionModal/>
             </div>
         </div>
     )
