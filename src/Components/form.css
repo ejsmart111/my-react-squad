@@ -1,0 +1,47 @@
+.form {
+  background: rgb(34, 37, 43);
+  border-radius: 10px;
+  box-shadow: 2px 2px 30px rgb(18, 17, 20);
+  height: auto;
+  margin: 80px auto;
+  padding: 80px 70px;
+  width: 500px;
+}
+
+input,
+select {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0;
+  margin: 10px auto;
+  padding: 8px;
+}
+
+input {
+  width: 400px;
+}
+
+select {
+  width: 200px;
+}
+
+option {
+  padding: 8px;
+  font-family: "Gowun Dodum", sans-serif;
+}
+
+label {
+  color: white;
+  font-family: "Gowun Dodum", sans-serif;
+}
+
+button {
+  background: rgb(11, 167, 50);
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: "Gowun Dodum", sans-serif;
+  margin-top: 15px;
+  padding: 10px;
+}

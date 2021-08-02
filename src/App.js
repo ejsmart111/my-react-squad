@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Field from "./Components/Field";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import playersAction from "./Store/ActionCreators.js/playersAction";
+import { useEffect, useState } from "react";
+import PlayerForm from "./Components/PlayerForm";
+import PlayersModal from "./Components/PlayersModal";
 
 function App() {
+  const players = useSelector(state => state.players)
+  const modalState = useSelector(state => state.modal)
+  
+  const dispatch = useDispatch()
+  const {fetchPlayers} = bindActionCreators(playersAction, dispatch)
+
+  useEffect(() => {
+    fetchPlayers()
+  }, [])
+
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { modalState.show && <PlayersModal position={modalState.position} players={players}/> }
+      <Field/>
+      {/* <PlayerForm/> */}
     </div>
   );
 }

@@ -1,0 +1,56 @@
+.player-card {
+  border: 1px solid white;
+  border-radius: 10px;
+  font-family: "Gowun Dodum", sans-serif;
+  height: 150px;
+  width: 120px;
+  cursor: pointer;
+}
+
+.player-card img {
+  border-radius: 10px 10px 0 0;
+  height: 100px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.player-card p {
+  color: white;
+  font-size: 10px;
+  margin: 0;
+}
+
+.player-details {
+  background-image: linear-gradient(0deg, #111314 50%, #7472701a);
+  border-radius: 0 0 10px 10px;
+  height: 50px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.gg-math-plus,
+.gg-math-plus::after {
+  display: block;
+  box-sizing: border-box;
+  background: currentColor;
+  border-radius: 10px;
+}
+
+.gg-math-plus {
+  margin-top: -2px;
+  color: rgba(255, 255, 255, 0.938);
+  position: relative;
+  transform: scale(var(--ggs, 1));
+  width: 66px;
+  height: 3px;
+}
+
+.gg-math-plus::after {
+  content: "";
+  color: rgba(255, 255, 255, 0.938);
+  position: absolute;
+  width: 3px;
+  height: 66px;
+  top: -27px;
+  left: 30px;
+}
