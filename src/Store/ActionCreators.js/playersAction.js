@@ -1,4 +1,4 @@
-import { playersRef } from "../../config/firebase"
+import { playersRef, SquadRef } from "../../config/firebase"
 
 const playersAction = {
     fetchPlayers: () => {
@@ -6,6 +6,16 @@ const playersAction = {
             playersRef.on('value', snapshot => {
                 dispatch({
                     type: 'fetchPlayers',
+                    payload: snapshot.val()
+                })
+            })
+        }
+    },
+    fetchSquads: () => {
+        return (dispatch) => {
+            SquadRef.on('value', snapshot => {
+                dispatch({
+                    type: 'fetchSquads',
                     payload: snapshot.val()
                 })
             })

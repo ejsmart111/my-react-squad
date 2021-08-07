@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import { SquadRef } from '../config/firebase'
+import { useHistory } from 'react-router'
 
 export default function SubmissionModal({ squad, setModal }) {
     const [squadName, setSquadName] = useState('')
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
     function handleNameChange (e) {
         setSquadName(e.target.value)
@@ -14,6 +16,7 @@ export default function SubmissionModal({ squad, setModal }) {
         console.log({...squad, squadName: squadName})
         if (squadName !== ''){
             SquadRef.push({...squad, squadName: squadName})
+            history.push('/')
             setModal()
             setLoading(false)
         } else {
